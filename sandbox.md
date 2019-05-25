@@ -1,9 +1,9 @@
 # sandbox keyword
 ## motivation
-синтаксический сахар для запуска кода "в песочнице" - не вызывает никаких сайд-эффектов во время исполнения.
+syntax sugar for running the sandboxed code - causes no side effects during execution.
 
 ## high-level api
-### Например, исполенение кода из файла
+### Example
 ```javascript
 const result = sandbox './file.js';
 ```
@@ -20,32 +20,32 @@ function sandbox(file) {
 const result = await sandbox('./file.js');
 ```
 
-> Разумеется, поддерживается также исполнение "в песочнице" функций и строк, по аналогии с `eval`.
+> Of course, sandboxing of functions and strings is also supported, by analogy with `eval`.
 
 ## FAQ
-### Если во время исполнения произойдет ошибка?
+### If an error occurs during execution?
 `try / catch` никто не отменял.
 
-### можно ли установить ограничения на исполняемый код? по памяти, времени исполнения?
-конечно
+### Is it possible to set restrictions on the executable code? from memory, time of execution??
+yes
 ```javascript
 await sandbox ["file.js", {memory, timeout}
 ```
 
-### можно ли передать параметры в исполнчемый код?
-конечно
+### Is it possible to pass parameters to executable code?
+of course
 ```javascript
 await sandbox ["file.js", {arguments}];
 ```
 
-### будут ли платформозависимые  разрешения и ограничения?
-это возможно. например, для node.js можно добавить ограничения на доступ к файловой системе.
+### whether platform-specific permissions and restrictions?
+it is possible. for example, for node.js, you can add file system access restrictions.
 ```javascript
 await sandbox  ["file.js", {fs: "readonly"}];
 ```
 
-### как насчет запуска интерактивного кода таким образом?
-конечно! можно использовать конструкцию generator sandbox!
+### How about running interactive code in this way?
+of course! You can use the constructor generator sandbox!
 ```javascript
 const cli = sandbox* "file.js";
 const prompt1 = yield cli;
@@ -54,4 +54,4 @@ const prompt2 = yield cli;
 cli.next({...});
 ```
 
-> хотя для этого кода не помешала бы конструкция `top level yield` :)
+> although for this code the construction would not hurt `top level yield` :)

@@ -1,8 +1,8 @@
 # String.is
 ## motivation
-проверяет переданный параметр на то, что он является строкой.
+checks the passed parameter that it is a string.
 
-по аналогии с методом Array.is
+Like Array.is
 
 ## high-level api
 ```javascript

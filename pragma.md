@@ -1,10 +1,10 @@
 # pragma syntax
 ## motivation
-добавляет подсказки для среды исполнения, что код может быть распараллелен или векторизован.
+Adds hints to the runtime that the code can be parallelized or vectorized.
 
-в первом случае ускоряет выполнение за счет использования мультипоточеости без явного создания воркеров, а во втором снижает количесво обращений к памяти.
+in the first case, it speeds up execution by using multi-threading without explicitly creating workers, while in the second case, it reduces the number of memory accesses.
 
-> В будущем могут быть добавлены другие инструкции pragma.
+> Other pragma instructions may be added in the future.
 
 ## high-level api
 ### cycles
@@ -29,9 +29,9 @@ array.map%parallel(e => e ** 2);
 ```
 
 ## FAQ
-### Что, если вычисление зависит не только от i-го элемента массива, но и от предыдущих (вычисленных значений)?
-в таком случае исполнение "векторизуется": из памяти в кеш всегда читается не один элемент массива, а некая последовательность элементов, обычно, минимум "страница" (зависит от процессора и его кеша).
+### What if the calculation depends not only on the i-th element of the array, but also on the previous (calculated values)?
+in this case, the execution is "vectorized": not one element of the array is read from memory to cache, but a certain sequence of elements, usually at least a "page" (depends on the processor and its cache).
 
-Обычно, в начале каждой итерации цикла происходит выгрузка из кеша предыдущих значений, загрузка новых и работа идет уже с ними. ппи этом, если код обращается к предыдушим значениям, илет новое обращение к памяти.
+Usually, at the beginning of each iteration of the cycle, the previous values are unloaded from the cache, new ones are loaded and work is already underway with them. If this code accesses the previous values, a new memory access is sent.
 
-Векторизация же  "говорит" процессору "выгружай предыдущие значения как можно реже"
+Vectorization "says" processor "unload previous values as rarely as possible."
