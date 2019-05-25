@@ -1,10 +1,10 @@
 # try stackoverflow
 
 ## motivation
-многие проблемы уже решены другими разработчиками, позволяет использовать чужие наработки.
+many problems have already been solved by other developers, it allows to use other people's work.
 
 ## high-level api
-Есть несколько возможностей использования SO в вашем коде.
+There are several possibilities for using SO in your code.
 
 
 ### import code
