@@ -1,7 +1,7 @@
 ## motivation
-Позволяет переместить выполнение кода в новое,  желательно, неожиданное место
+Allows you to move code execution to a new, preferably unexpected, place.
 
-> Чрезмерное употребление ЭТОГО оператора может придать коду вид известного блюда итальянской кухни
+> Excessive use of the operator can give the code the appearance of a famous Italian dish
 
 ## high-level api
 ### global scope
@@ -37,14 +37,10 @@ class Foo {
 const foo = new Foo();
 foo.bar();
 
-// сработает так
+// work like that
 code1();
 code3(); 
-// перенос в функциях происходит со всем скоупом - так веселее.
+// transfer in functions takes place with all the scop - so much more fun.
 ```
 
 ## FAQ
-### на..уя это надо?
-1) чтобы олдфаги могли полегче переходить на JS из своих устаревающих языков.
-2) чтобы ньюфаги попробовали жизнь на вкус.
-3) интервьюеры смогут новыми способами унижать несчастных на собеседованиях.
