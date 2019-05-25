@@ -1,25 +1,25 @@
 ## motivation
-Описывает набор инструкций, которые будут выполняться только тогда, когда внешнему коду потребуется результат исполнения этих инструкций.
+Describes a set of instructions that will be executed only when the external code needs the result of executing these instructions.
 
-## примеры из других языков
-LINQ в .NET
+## examples from other languages
+LINQ in .NET
 
 ## high-level api
 ```javascript
 const result = lasy array.map(...).filter(...).reduce(...);
-// инструкции не будут вычисляться вообще
+// instructions will not be calculated at all
 ...
 
-console.log(result[0]) // result будет вычислен только сейчас.
+console.log(result[0]) // result will be calculated just now.
 ```
 
 ### Принудительное исполнение
 ```javascript
 const result = lasy array.map(...).filter(...);
-// result не будет вычислен вообще
+// result will not be calculated at all
 ...
 (fuzzy result).reduce(...);
-// вычисляется значение на момент вызова fuzzy, а затем в очередь вычислений добавляется новый вызов
+// calculate the value at the time of calling fuzzy, and then add a new call to the calculation queue
 
-console.log(result[0]); // окончательное вычисление result
+console.log(result[0]); // final calculation result
 ```
